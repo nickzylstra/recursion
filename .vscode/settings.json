@@ -7,7 +7,6 @@
   "editor.wordWrap": "on",
   "emmet.showExpandedAbbreviation": "never",
   "files.trimTrailingWhitespace": true,
-  "javascript.suggest.enabled": false,
   "javascript.updateImportsOnFileMove.enabled": "never",
   "javascript.validate.enable": false
 }
