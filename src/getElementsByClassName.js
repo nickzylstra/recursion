@@ -4,20 +4,19 @@
 // };
 
 // But instead we're going to implement it from scratch:
-let getElementsByClassName = function (className) {
+let getElementsByClassName = function (className, node = document.body) {
   const elements = [];
 
-  const checkNode = function checkNode(node) {
-    if (node.classList && node.classList.contains(className)) {
-      elements.push(node);
-    }
+  if (node.classList && node.classList.contains(className)) {
+    elements.push(node);
+  }
 
-    if (node.childNodes) {
-      node.childNodes.forEach((child) => checkNode(child));
-    }
-  };
-
-  checkNode(document.body);
+  if (node.childNodes) {
+    node.childNodes.forEach((child) => {
+      const result = getElementsByClassName(className, child);
+      elements.concat(result);
+    });
+  }
 
   return elements;
 };
